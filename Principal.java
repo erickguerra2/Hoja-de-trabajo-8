@@ -1,3 +1,10 @@
+/** 
+ * Erick Guerra 23208
+ * gue23208@uvg.edu.gt
+ * Hoja-de-trabajo-8
+ * Lenguaje: Java
+ *  Un sistema de colas con prioridad para atender pacientes en la emergencia de un hospital.
+ */
 import java.util.PriorityQueue;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -10,6 +17,10 @@ public class Principal {
         colaPacientes = new PriorityQueue<>();
     }
 
+    
+    /** 
+     * @param archivo
+     */
     public void cargarPacientes(String archivo) {
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
@@ -27,10 +38,14 @@ public class Principal {
     public void atenderPacientes() {
         while (!colaPacientes.isEmpty()) {
             Paciente paciente = colaPacientes.poll();
-            System.out.println("Atendiendo a: " + paciente);
+            System.out.println("atendiendo a: " + paciente);
         }
     }
 
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         Principal hospital = new Principal();
         hospital.cargarPacientes("pacientes.txt");
